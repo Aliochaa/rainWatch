@@ -1,6 +1,6 @@
 <html>
 <head>
-  <title>Meteo Rain</title>
+  <title>Rain Watch</title>
 </head>
 <body>
     <h2>Démo Node.js + Socket IO</h2>
@@ -9,14 +9,13 @@
     </form>
     <div id="response"></div>
 
-<!--       http://api.tiles.mapbox.com/v3/examples.map-zr0njcqy/geocode/2.34,48.85.json
- -->  
+<!--       http://api.tiles.mapbox.com/v3/examples.map-zr0njcqy/geocode/2.34,48.85.json -->  
     <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
     <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
     <script>
       var socket = io();
       $('form').submit(function(){
-        socket.emit('newTown', $('#m').val());
+        socket.emit('newCity', $('#m').val());
         $('#m').val('');
         return false;
       });
@@ -26,7 +25,7 @@
       });
       socket.on('problem', function(error){
         //console.log(city);
-        $('#response').append($('<li style="color: red;">').text(error.input + " : " + error.text));
+        $('#response').append($('<li style="color: red;">').text(error));
       });
     </script>
 </body>
