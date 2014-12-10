@@ -1,0 +1,12 @@
+{
+  "name": "meteo-rain",
+  "version": "0.0.1",
+  "description": "Find time before next rain",
+  "main": "server.js",
+  "author": "Aliocha",
+  "dependencies": {
+    "express": "latest",
+    "request": "latest",
+    "socket.io": "^1.2.1"
+  }
+}
