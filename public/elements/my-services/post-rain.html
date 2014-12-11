@@ -1,0 +1,37 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/geo-location/geo-location.html">
+<link rel="import" href="../../bower_components/socket-connection/socket-connection.html">
+
+<polymer-element name="post-rain" attributes="posts watchpos position query">
+    <template>
+        <style>
+        :host {
+            display: none;
+        }
+        </style>
+        <geo-location id="geoloc" watchpos="{{watchpos}}" latitude="{{lat}}" longitude="{{lng}}"></geo-location>
+
+        <socket-connection url="/" auto>
+            <socket-emitter id="socketCoords" event="newCoords" value="{{coords}}"></socket-emitter>
+            <socket-emitter id="socketQuery" event="newCity" value="{{query}}" auto></socket-emitter>
+
+            <socket-receiver id="socketResponse" event="response" data="{{response}}"></socket-receiver>
+            <socket-receiver id="socketClients" event="nbClients" data="{{ nbClients }}"></socket-receiver>
+        </socket-connection>
+    </template>
+    <script>
+    Polymer('post-rain', {
+        watchpos: true,
+        posts: [],
+        query: "",
+        created: function() {
+            this.posts.push({
+                name: 'haha'
+            });
+            this.posts.push({
+                name: 'hihi'
+            });
+        }
+    });
+    </script>
+</polymer-element>

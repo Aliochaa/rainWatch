@@ -4,27 +4,24 @@
 <link rel="import" href="../../bower_components/core-field/core-field.html">
 <link rel="import" href="../../bower_components/paper-input/paper-input.html">
 
-<style>
-</style>
-
-<polymer-element name="my-search-input">
+<polymer-element name="my-search-input" attributes="customLabel query">
     <template>
         <core-field>
             <core-icon icon="search"></core-icon>
-            <paper-input id="nameInput" value="{{name}}" label="{{customLabel}}" floatingLabel></paper-input>
+            <paper-input id="nameInput" value="{{query}}" label="{{customLabel}}" floatingLabel></paper-input>
         </core-field>
     </template>
     <script>
     Polymer({
         // These default values are overridden
         // by the user's attribute values.
-        name: "",
+        query: "",
         customLabel: "Votre ville",
         nameChanged: function() {
-            if (this.name) {
+            if (this.query) {
                 // Ensure name is capitalized
-                this.name = this.name[0].toUpperCase() +
-                    this.name.slice(1);
+                this.query = this.query[0].toUpperCase() +
+                    this.query.slice(1);
             }
         }
     });

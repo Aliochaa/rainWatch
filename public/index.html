@@ -1,6 +1,5 @@
 <!doctype html>
 <html>
-
 <head>
     <title>rainWatch</title>
     <meta charset="utf-8" />
@@ -11,71 +10,38 @@
 
     <link rel="import" href="bower_components/core-header-panel/core-header-panel.html">
     <link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
-    <link rel="import" href="bower_components/geo-location/geo-location.html">
-    <link rel="import" href="bower_components/socket-connection/socket-connection.html">
 
     <link rel="import" href="elements/my-logo/my-logo.html">
     <link rel="import" href="elements/my-search-input/my-search-input.html">
-    <link rel="import" href="elements/my-toggle/my-toggle.html">
+    <!-- <link rel="import" href="elements/my-toggle/my-toggle.html"> -->
     <link rel="import" href="elements/my-list/my-list.html">
 </head>
 
 <body fullbleed layout vertical unresolved>
     <core-header-panel flex>
-        <core-toolbar class="animate">
-            <my-logo nameApp="rainWatch2" flex></my-logo>
-            <my-search-input flex></my-search-input>
-            <my-toggle customLabel="essai"></my-toggle>
+        <core-toolbar layout horizontal center-justified>
+            <my-logo nameApp="rainWatch"></my-logo>
+            <my-search-input query="{{query}}"></my-search-input>
+            <!-- <my-toggle></my-toggle> -->
         </core-toolbar>
         <div class="container" layout vertical center>
-
-            <my-list show="all"></my-list>
-
-            <geo-location watchpos>
-
-            </geo-location>
-
-            <socket-connection url="/" auto>
-                <socket-emitter event="newCoords" value="{{coords}}"></socket-emitter>
-                <socket-emitter event="newCity" value="{{city}}"></socket-emitter>
-                <socket-receiver event="response" data="{{response}}"></socket-receiver>
-                <socket-receiver event="problem" data="{{error}}"></socket-receiver>
-            </socket-connection>
-
+            <my-list show="all" layout horizontal center-justified></my-list>
         </div>
     </core-header-panel>
-    <!-- <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
-    <script src="http://code.jquery.com/jquery-1.11.1.js"></script> -->
+
+    <post-rain posts="{{posts}}" query="{{query}}">
+        </post-rain>
+
     <script>
-    // var socket = io();
-    // $('form').submit(function() {
-    //     socket.emit('newCity', $('#m').val());
-    //     $('#m').val('');
-    //     return false;
+    // var socketReceiver = document.querySelector('#socketResponse');
+    // socketReceiver.addEventListener('received-data',function(e) {
+    //   document.querySelector('span#response').innerText = e.detail.response.text;
     // });
-    // socket.on('response', function(city) {
-    //     //console.log(city);
-    //     $('#response').append($('<li>').text(city.name + " : " + city.nextRain));
+
+    // var socketClients = document.querySelector('#socketClients');
+    // socketClients.addEventListener('received-data',function(e) {
+    //   document.querySelector('span#nbClients').innerText = e.detail;
     // });
-    // socket.on('problem', function(error) {
-    //     //console.log(city);
-    //     $('#response').append($('<li style="color: red;">').text(error));
-    // });
-    </script>
-    <script>
-    var coordonnees = document.querySelector('socket-emitter');
-    coordonnees.value = {
-      latitude: 2,
-      longitude: 3
-    };
-    var geolocation = document.querySelector('geo-location');
-    geolocation.addEventListener('geo-response', function(e) {
-      coordonnees.value = {
-        latitude: this.latitude.toFixed(6),
-        longitude: this.longitude.toFixed(6)
-      };
-      coordonnees.emit();
-    });
     </script>
 </body>
 

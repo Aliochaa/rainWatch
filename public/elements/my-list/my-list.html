@@ -1,6 +1,6 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
-<link rel="import" href="../../bower_components/post-service/post-service.html">
 <link rel="import" href="../my-card/my-card.html">
+
 
 <polymer-element name="my-list" attributes="show">
     <template>
@@ -9,21 +9,19 @@
             display: block;
             width: 100%;
         }
-        post-card {
+        my-card {
             margin-bottom: 30px;
         }
         </style>
 
-        <post-service id="service" posts="{{posts}}">
-        </post-service>
+        <post-rain id="service" posts="{{posts}}">
+        </post-rain>
 
         <div layout vertical center>
 
             <template repeat="{{post in posts}}">
                 <my-card>
-                    <img src="{{post.avatar}}" width="70" height="70">
-                    <h2>{{post.username}}</h2>
-                    <p>{{post.text}}</p>
+                    <h2>{{post.name}}</h2>
                 </my-card>
             </template>
 
