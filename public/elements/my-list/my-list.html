@@ -1,5 +1,6 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../my-card/my-card.html">
+<link rel="import" href="../my-services/post-rain.html">
 
 
 <polymer-element name="my-list" attributes="show">
@@ -22,6 +23,7 @@
             <template repeat="{{post in posts}}">
                 <my-card>
                     <h2>{{post.name}}</h2>
+                    {{post.text}}
                 </my-card>
             </template>
 

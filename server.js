@@ -33,7 +33,6 @@ io.on('connection', function(socket) {
 
 	//A réception de nouvelles coordonnées pour ce client
     socket.on('newCoords', function(coords) {
-    	console.log(coords)
     	rainWatchScraper.getRain(coords,null,socket);
     });
 });

@@ -6,9 +6,12 @@
 
 <polymer-element name="my-search-input" attributes="customLabel query">
     <template>
+    <style>
+
+    </style>
         <core-field>
             <core-icon icon="search"></core-icon>
-            <paper-input id="nameInput" value="{{query}}" label="{{customLabel}}" floatingLabel></paper-input>
+            <paper-input id="nameInput" value="{{value}}" committedValue="{{query}}" label="{{customLabel}}" floatingLabel></paper-input>
         </core-field>
     </template>
     <script>
@@ -16,12 +19,13 @@
         // These default values are overridden
         // by the user's attribute values.
         query: "",
+        value:"",
         customLabel: "Votre ville",
-        nameChanged: function() {
-            if (this.query) {
+        valueChanged: function() {
+            if (this.value) {
                 // Ensure name is capitalized
-                this.query = this.query[0].toUpperCase() +
-                    this.query.slice(1);
+                this.value = this.value[0].toUpperCase() +
+                    this.value.slice(1);
             }
         }
     });

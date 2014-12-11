@@ -1,8 +1,10 @@
 body {
   font-family: sans-serif;
+  background-color: #ccc
 }
 core-header-panel {
-  background: white;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
 }
 core-toolbar {
   background-color: #03A9F4;

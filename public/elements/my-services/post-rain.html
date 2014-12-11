@@ -9,14 +9,14 @@
             display: none;
         }
         </style>
-        <geo-location id="geoloc" watchpos="{{watchpos}}" latitude="{{lat}}" longitude="{{lng}}"></geo-location>
+        <geo-location watchpos="{{watchpos}}" latitude="{{lat}}" longitude="{{lng}}"></geo-location>
 
         <socket-connection url="/" auto>
-            <socket-emitter id="socketCoords" event="newCoords" value="{{coords}}"></socket-emitter>
-            <socket-emitter id="socketQuery" event="newCity" value="{{query}}" auto></socket-emitter>
+            <socket-emitter event="newCoords" value="{{coords}}" auto></socket-emitter>
+            <socket-emitter event="newCity" value="{{query}}" auto></socket-emitter>
 
-            <socket-receiver id="socketResponse" event="response" data="{{response}}"></socket-receiver>
-            <socket-receiver id="socketClients" event="nbClients" data="{{ nbClients }}"></socket-receiver>
+            <socket-receiver event="response" data="{{response}}"></socket-receiver>
+            <socket-receiver event="nbClients" data="{{nbClients}}"></socket-receiver>
         </socket-connection>
     </template>
     <script>
@@ -24,13 +24,27 @@
         watchpos: true,
         posts: [],
         query: "",
+        lat: "",
+        lng: "",
+        response: "",
+        nbClients: 0,
         created: function() {
+            
+        },
+        latChanged: function(oldVal, newVal) {
+            this.coords = {
+                latitude: this.lat.toFixed(4),
+                longitude: this.lng.toFixed(4)
+            };
+        },
+        responseChanged: function(oldVal, newVal) {
             this.posts.push({
-                name: 'haha'
+                name:this.response.name,
+                text: this.response.response.text
             });
-            this.posts.push({
-                name: 'hihi'
-            });
+        },
+        queryChanged: function(oldVal,newVal) {
+            console.log(newVal)
         }
     });
     </script>
