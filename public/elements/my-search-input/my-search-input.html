@@ -1,0 +1,32 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<link rel="import" href="../../bower_components/core-icon/core-icon.html">
+<link rel="import" href="../../bower_components/core-field/core-field.html">
+<link rel="import" href="../../bower_components/paper-input/paper-input.html">
+
+<style>
+</style>
+
+<polymer-element name="my-search-input">
+    <template>
+        <core-field>
+            <core-icon icon="search"></core-icon>
+            <paper-input id="nameInput" value="{{name}}" label="{{customLabel}}" floatingLabel></paper-input>
+        </core-field>
+    </template>
+    <script>
+    Polymer({
+        // These default values are overridden
+        // by the user's attribute values.
+        name: "",
+        customLabel: "Votre ville",
+        nameChanged: function() {
+            if (this.name) {
+                // Ensure name is capitalized
+                this.name = this.name[0].toUpperCase() +
+                    this.name.slice(1);
+            }
+        }
+    });
+    </script>
+</polymer-element>

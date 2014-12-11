@@ -26,3 +26,9 @@ node_modules
 
 # Users Environment Variables
 .lock-wscript
+
+# Bower components
+public/bower_components
+
+# Icons source
+public/meteocons-icons

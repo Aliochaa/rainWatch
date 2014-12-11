@@ -1,0 +1,25 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<link rel="import" href="../../bower_components/core-icon/core-icon.html">
+<link rel="import" href="../../bower_components/core-label/core-label.html">
+<link rel="import" href="../../bower_components/paper-toggle-button/paper-toggle-button.html">
+
+<style>
+</style>
+
+<polymer-element name="my-toggle">
+    <template>
+        <core-label>
+            <core-icon icon="room"></core-icon>
+            <span>{{customLabel}}</span>
+            <paper-toggle-button></paper-toggle-button>
+        </core-label>
+    </template>
+    <script>
+    Polymer({
+        // These default values are overridden
+        // by the user's attribute values.
+        customLabel: ""
+    });
+    </script>
+</polymer-element>
