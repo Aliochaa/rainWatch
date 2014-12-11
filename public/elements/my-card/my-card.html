@@ -1,0 +1,27 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/core-icon-button/core-icon-button.html">
+
+<polymer-element name="my-card" noscript>
+    <template>
+        <style>
+    :host {
+      display: block;
+      position: relative;
+      background-color: white;
+      padding: 20px;
+      width: 100%;
+      font-size: 1.2rem;
+      font-weight: 300;
+    }
+    .card-header {
+      margin-bottom: 10px;
+    }
+        </style>
+
+        <div class="card-header" layout horizontal center>
+            <content select="h2"></content>
+        </div>
+        <content></content>
+
+    </template>
+</polymer-element>

@@ -1,0 +1,51 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/geo-location/geo-location.html">
+<link rel="import" href="../../bower_components/socket-connection/socket-connection.html">
+
+<polymer-element name="post-rain" attributes="posts watchpos position query">
+    <template>
+        <style>
+        :host {
+            display: none;
+        }
+        </style>
+        <geo-location watchpos="{{watchpos}}" latitude="{{lat}}" longitude="{{lng}}"></geo-location>
+
+        <socket-connection url="/" auto>
+            <socket-emitter event="newCoords" value="{{coords}}" auto></socket-emitter>
+            <socket-emitter event="newCity" value="{{query}}" auto></socket-emitter>
+
+            <socket-receiver event="response" data="{{response}}"></socket-receiver>
+            <socket-receiver event="nbClients" data="{{nbClients}}"></socket-receiver>
+        </socket-connection>
+    </template>
+    <script>
+    Polymer('post-rain', {
+        watchpos: true,
+        posts: [],
+        query: "",
+        lat: "",
+        lng: "",
+        response: "",
+        nbClients: 0,
+        created: function() {
+            
+        },
+        latChanged: function(oldVal, newVal) {
+            this.coords = {
+                latitude: this.lat.toFixed(4),
+                longitude: this.lng.toFixed(4)
+            };
+        },
+        responseChanged: function(oldVal, newVal) {
+            this.posts.push({
+                name:this.response.name,
+                text: this.response.response.text
+            });
+        },
+        queryChanged: function(oldVal,newVal) {
+            console.log(newVal)
+        }
+    });
+    </script>
+</polymer-element>

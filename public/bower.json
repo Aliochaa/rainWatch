@@ -1,0 +1,31 @@
+{
+  "name": "rainWatch",
+  "version": "0.0.0",
+  "homepage": "https://github.com/Aliochaa/rainWatch",
+  "authors": [
+    "Jules Bonnard <julesbonnard@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "core-component-page": "Polymer/core-component-page#^0.5.0",
+    "core-header-panel": "Polymer/core-header-panel#~0.5.1",
+    "core-toolbar": "Polymer/core-toolbar#~0.5.1",
+    "core-field": "Polymer/core-field#~0.5.0",
+    "core-icon": "Polymer/core-icon#~0.5.1",
+    "core-input": "Polymer/core-input#~0.5.1",
+    "paper-input": "Polymer/paper-input#~0.5.1",
+    "core-image": "Polymer/core-image#~0.5.1",
+    "paper-toggle-button": "Polymer/paper-toggle-button#~0.5.1",
+    "core-label": "Polymer/core-label#~0.5.1",
+    "core-icon-button": "Polymer/core-icon-button#~0.5.1",
+    "socket-connection": "~0.1.2",
+    "geo-location": "~0.0.7"
+  }
+}

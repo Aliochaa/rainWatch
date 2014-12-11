@@ -1,0 +1,26 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<link rel="import" href="../../bower_components/core-icon/core-icon.html">
+
+<polymer-element name="my-logo" attributes="nameApp logoApp">
+    <template>
+    <style>
+.big {
+	height: 50px;
+    width: 50px;
+}
+</style>
+        <div>
+            <core-icon class="big" src="{{logoApp}}"></core-icon>
+            <span>{{nameApp}}</span>
+        </div>
+    </template>
+    <script>
+    Polymer({
+      // These default values are overridden
+      // by the user's attribute values.
+      nameApp: "rainWatch",
+      logoApp: "/icons/main.svg"
+    });
+  </script>
+</polymer-element>

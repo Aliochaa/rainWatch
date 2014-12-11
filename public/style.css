@@ -1,0 +1,12 @@
+body {
+  font-family: sans-serif;
+  background-color: #ccc
+}
+core-header-panel {
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+core-toolbar {
+  background-color: #03A9F4;
+  color: white;
+}

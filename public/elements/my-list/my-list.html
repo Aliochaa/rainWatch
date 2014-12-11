@@ -1,0 +1,39 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../my-card/my-card.html">
+<link rel="import" href="../my-services/post-rain.html">
+
+
+<polymer-element name="my-list" attributes="show">
+    <template>
+        <style>
+        :host {
+            display: block;
+            width: 100%;
+        }
+        my-card {
+            margin-bottom: 30px;
+        }
+        </style>
+
+        <post-rain id="service" posts="{{posts}}">
+        </post-rain>
+
+        <div layout vertical center>
+
+            <template repeat="{{post in posts}}">
+                <my-card>
+                    <h2>{{post.name}}</h2>
+                    {{post.text}}
+                </my-card>
+            </template>
+
+        </div>
+
+    </template>
+
+    <script>
+    Polymer({
+    });
+    </script>
+
+</polymer-element>
